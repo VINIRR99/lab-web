@@ -1,4 +1,7 @@
-import axios from "axios";
+import { User } from "./models/User";
 
-// axios.post('http://localhost:3000/users', { name: 'Jacob Tate', age: 20 });
-axios.get('http://localhost:3000/users/1').then(user => console.log(user.data));
+const jacob = new User({ id: 1 });
+
+jacob.fetch();
+
+console.log(jacob)
