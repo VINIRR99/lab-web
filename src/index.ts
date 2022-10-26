@@ -10,4 +10,6 @@ console.log(age);
 
 user.on('change', () => {console.log('User was changed!')});
 
-user.trigger('change');
+user.set({ name: 'Luigi Mario', age: 60 });
+
+console.log(user.get('age'))
