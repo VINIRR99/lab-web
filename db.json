@@ -9,6 +9,21 @@
       "name": "Mario Battali",
       "age": 50,
       "id": 2
+    },
+    {
+      "name": "Lino Palmadore",
+      "age": 32,
+      "id": 3
+    },
+    {
+      "name": "Lino Palmadore",
+      "age": 32,
+      "id": 4
+    },
+    {
+      "name": "Amy Lalo",
+      "age": 27,
+      "id": 5
     }
   ]
 }
