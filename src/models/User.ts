@@ -27,4 +27,13 @@ export class User {
         this.attributes.set(update);
         this.events.trigger('change');
     };
+
+    fetch = async (): Promise<void> => {
+        const id = this.attributes.get('id');
+
+        if (!id) throw new Error('Cannot fetch without an id');
+
+        const data = await this.sync.fetch(id);
+        this.set(data);
+    };
 };
