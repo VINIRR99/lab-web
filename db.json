@@ -24,6 +24,19 @@
       "name": "Amy Lalo",
       "age": 27,
       "id": 5
+    },
+    {
+      "name": "Shigeo Kageyama",
+      "age": 13,
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "name": "Son Goku",
+      "age": 25,
+      "id": 8
     }
   ]
 }
