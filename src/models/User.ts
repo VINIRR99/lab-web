@@ -1,5 +1,6 @@
 import { Eventing } from "./Eventing";
 import { Sync } from "./Sync";
+import { Attributes } from "./Attributes";
 
 interface UserProps {
     id?: number;
@@ -10,10 +11,9 @@ interface UserProps {
 export class User {
     public events: Eventing = new Eventing();
     public sync: Sync<UserProps> = new Sync<UserProps>('http://localhost:3000/users');
+    public attributes: Attributes<UserProps>;
 
-    constructor(private data: UserProps) {};
-
-    get = (propName: string): (string | number) => this.data[propName];
-
-    set = (update: UserProps): void => {Object.assign(this.data, update)};
+    constructor(attrs: UserProps) {
+        this.attributes = new Attributes<UserProps>(attrs);
+    };
 };
