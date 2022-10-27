@@ -1,7 +1,11 @@
 import { User } from "../models/User";
 
 export class UserForm {
-    constructor(public parent: HTMLElement, public model: User) {};
+    constructor(public parent: HTMLElement, public model: User) {
+        this.bindModel();
+    };
+
+    bindModel = (): void => {this.model.on('change', (): void => {this.render()})};
 
     template = (): string => `
         <div>
@@ -10,18 +14,25 @@ export class UserForm {
                 <div>User name: ${this.model.get('name')}</div>
                 <div>User age: ${this.model.get('age')}</div>
             </div>
-            <input />
-            <button>Click Me</button>
+            <input placeholder="Name..." />
+            <button class="set-name">Change Name</button>
+            <button class="set-age">Set Random Age</button>
         </div>
     `;
 
-    onButtonClick = (): void => {console.log('Hi There')};
+    onSetName = (): void => {
+        const input = this.parent.querySelector('input');
 
-    onHeaderHover = (): void => {console.log('H1 was hovered!')};
+        const name = input?.value;
+
+        this.model.set({ name });
+    };
+
+    onSetRandomAge = (): void => {this.model.setRandomAge()};
 
     eventsMap = (): { [key: string]: () => void } => {return {
-        'click:button': this.onButtonClick,
-        'mouseenter:h1': this.onHeaderHover
+        'click:.set-age': this.onSetRandomAge,
+        'click:.set-name': this.onSetName
     }};
 
     bindEvents = (fragment: DocumentFragment): void => {
@@ -37,6 +48,8 @@ export class UserForm {
     };
 
     render = (): void => {
+        this.parent.innerHTML = '';
+
         const template = document.createElement('template');
         template.innerHTML = this.template();
 
