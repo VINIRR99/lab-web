@@ -14,7 +14,7 @@ interface Events {
     trigger(eventName: string): void;
 };
 
-interface HasId { id?: number };
+export interface HasId { id?: number };
 
 export class Model<T extends HasId> {
     constructor(
