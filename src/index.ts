@@ -1,13 +1,13 @@
 import { User } from "./models/User";
-import { UserEdit } from "./views/UserEdit"; 
+import { App } from "./views/App";
 
-const user = User.buildUser({ name: 'Lalo Salamanca', age: 60 });
+const user = User.buildUser({ name: 'New User', age: 50 });
 
 const root = document.getElementById('root');
 
 if (root) {
-    const userEdit = new UserEdit(root, user);
-    userEdit.render();
+    const app = new App(root, user);
+    app.render();
 } else {
-    throw new Error('Root Element not found');
+    throw new Error('Root not found');
 };

@@ -40,7 +40,7 @@ export abstract class View<T extends Model<K>, K extends HasId> {
         };
     };
 
-    onRender = (): void => {}
+    onRender = (): void => {};
 
     render = (): void => {
         this.parent.innerHTML = '';
